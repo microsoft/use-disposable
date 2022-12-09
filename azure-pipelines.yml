@@ -99,14 +99,12 @@ jobs:
 
       - script: |
           npm run release -- $(publishVersion) --ci
-        displayName: publish
+        displayName: Publish (official)
         env:
           NPM_TOKEN: $(npmToken)
-        displayName: Publish (official)
 
       - script: |
           npm run release -- $(publishVersion) --preRelease $(prereleaseTag) --ci
-        displayName: publish
+        displayName: Publish (prerelease)
         env:
           NPM_TOKEN: $(npmToken)
-        displayName: Publish (prerelease)
