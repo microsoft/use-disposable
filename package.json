@@ -1,0 +1,37 @@
+{
+  "name": "use-disposable",
+  "version": "0.0.0",
+  "description": "A StrictMode safe hook that will create disposable instance during render",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsup index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest",
+    "test:ci": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/use-disposable.git"
+  },
+  "author": "microsoft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/microsoft/use-disposable/issues"
+  },
+  "homepage": "https://github.com/microsoft/use-disposable#readme",
+  "peerDependencies": {
+    "@types/react": ">=16.8.0 <19.0.0",
+    "@types/react-dom": ">=16.8.0 <19.0.0",
+    "react": ">=16.8.0 <19.0.0",
+    "react-dom": ">=16.8.0 <19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.4.0",
+    "prettier": "^2.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^6.5.0",
+    "vitest": "^0.25.6"
+  }
+}
