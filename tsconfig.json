@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": ".",
-    "target": "ES2019",
+    "target": "ES2020",
     "module": "esnext",
     "moduleResolution": "node",
     "lib": ["ES2020", "dom"],
@@ -14,5 +14,14 @@
     "baseUrl": ".",
     "jsx": "react"
   },
-  "exclude": ["node_modules"]
+  "include": [],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
 }
