@@ -1,5 +1,7 @@
 # use-disposable
 
+A hook that creates disposable instances during render phase that works with strict mode.
+
 ## Problem
 
 With the introduction of [stricter strict mode in React 18](https://github.com/reactwg/react-18/discussions/19), factories
