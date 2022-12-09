@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v3.5.1
         with:
           node-version: 16.x
-      - run: npm run install
+      - run: npm install
       - run: npm run format:check
       - run: npm run type-check
       - run: npm run test:ci
