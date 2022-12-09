@@ -100,11 +100,13 @@ jobs:
       - script: |
           npm run release -- $(publishVersion) --ci
         displayName: Publish (official)
+        condition: eq(variables.prerelease, false)
         env:
           NPM_TOKEN: $(npmToken)
 
       - script: |
           npm run release -- $(publishVersion) --preRelease $(prereleaseTag) --ci
         displayName: Publish (prerelease)
+        condition: eq(variables.prerelease, true)
         env:
           NPM_TOKEN: $(npmToken)
