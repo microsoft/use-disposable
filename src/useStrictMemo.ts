@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { getCurrentOwner } from "./useIsStrictMode";
 
 // we know strict mode will render useMemo facory twice
