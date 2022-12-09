@@ -1,1 +1,1 @@
-export const stub = "";
+export { useIsStrictMode } from "./useIsStrictMode";
