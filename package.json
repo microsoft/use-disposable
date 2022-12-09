@@ -2,10 +2,10 @@
   "name": "use-disposable",
   "version": "0.0.0",
   "description": "A StrictMode safe hook that will create disposable instance during render",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "type": "module",
   "sideEffects": false,
   "scripts": {
@@ -15,7 +15,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest",
-    "test:ci": "vitest run"
+    "test:ci": "vitest run",
+    "type-check": "tsc -b tsconfig.json"
   },
   "repository": {
     "type": "git",

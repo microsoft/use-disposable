@@ -5,4 +5,5 @@ export default defineConfig({
   sourcemap: "inline",
   dts: true,
   tsconfig: "tsconfig.lib.json",
+  outDir: "lib",
 });
