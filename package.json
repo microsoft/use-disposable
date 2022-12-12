@@ -1,6 +1,7 @@
 {
   "name": "use-disposable",
   "version": "0.1.0-alpha.0",
+  "license": "MIT",
   "description": "A StrictMode safe hook that will create disposable instance during render",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
@@ -9,9 +10,8 @@
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsup --format esm",
-    "build:cjs": "tsup --format cjs",
+    "build": "tsup --format cjs,esm",
+    "bundle-size:measure": "monosize measure",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepublishOnly": "npm run build",
@@ -24,8 +24,6 @@
     "type": "git",
     "url": "git+https://github.com/microsoft/use-disposable.git"
   },
-  "author": "microsoft",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/microsoft/use-disposable/issues"
   },
@@ -40,6 +38,8 @@
     "@testing-library/react": "^13.4.0",
     "auto-changelog": "^2.4.0",
     "jsdom": "^20.0.3",
+    "monosize": "0.0.9",
+    "monosize-storage-upstash": "0.0.8",
     "prettier": "^2.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
