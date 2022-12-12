@@ -8,15 +8,21 @@ export const getCurrentOwner = () =>
   React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
     .current;
 
-const REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+const REACT_STRICT_MODE_TYPE = /*#__PURE__*/ Symbol.for("react.strict_mode");
 
 /**
- * Traverses up the React fiber tree to find the the strict mode component.
+ * Traverses up the React fiber tree to find the StrictMode component.
  * Note: This only detects strict mode from React >= 18
  * https://github.com/reactwg/react-18/discussions/19
  * @returns If strict mode is being used in the React tree
  */
 export const useIsStrictMode = (): boolean => {
+  // This check violates Rules of Hooks, but "process.env.NODE_ENV" does not change in bundle
+  // or during application lifecycle
+  if (process.env.NODE_ENV === "production") {
+    return false;
+  }
+
   const isStrictMode = React.useRef<boolean | undefined>(undefined);
   const reactMajorVersion = React.useMemo(() => {
     return Number(React.version.split(".")[0]);
