@@ -34,7 +34,7 @@ export const useIsStrictMode = (): boolean => {
 
   if (isStrictMode.current === undefined) {
     let currentOwner = getCurrentOwner();
-    while (currentOwner.return) {
+    while (currentOwner && currentOwner.return) {
       currentOwner = currentOwner.return;
       if (
         currentOwner.type === REACT_STRICT_MODE_TYPE ||
