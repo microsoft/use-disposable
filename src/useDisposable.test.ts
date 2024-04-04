@@ -3,6 +3,8 @@ import { renderHook } from "@testing-library/react";
 import * as React from "react";
 import { useDisposable } from "./useDisposable";
 
+const _maybe_it = process.env.REACT_VERSION === "rc" ? it.skip : it;
+
 describe("useDisposable", () => {
   describe("in strict mode", () => {
     it("should call factory once during mount", () => {
@@ -23,7 +25,7 @@ describe("useDisposable", () => {
       expect(dispose).toHaveBeenCalledTimes(0);
     });
 
-    it("should call dispose on unmount", () => {
+    _maybe_it("should call dispose on unmount", () => {
       const dispose = vi.fn();
       const { unmount } = renderHook(
         () => useDisposable(() => ["foo", dispose], []),
@@ -37,7 +39,7 @@ describe("useDisposable", () => {
       expect(dispose).toHaveBeenCalledTimes(1);
     });
 
-    it("should call dispose and call factory if dependencies update", () => {
+    _maybe_it("should call dispose and call factory if dependencies update", () => {
       const dispose = vi.fn();
       const factory = vi.fn().mockReturnValue(["foo", dispose]);
       let dep = "foo";

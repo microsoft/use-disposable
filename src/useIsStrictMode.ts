@@ -3,10 +3,22 @@ import * as React from "react";
 /**
  * @returns Current react fiber being rendered
  */
-export const getCurrentOwner = () =>
-  // @ts-ignore - using react internals
-  React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
-    .current;
+export const getCurrentOwner = () => {
+  try {
+    // React 19
+    // @ts-ignore - using react internals
+    return React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.A.getOwner();
+  } catch {}
+
+  try {
+    // React <18
+    // @ts-ignore - using react internals
+    return React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
+      .ReactCurrentOwner.current;
+  } catch {
+    console.error("use-disposable: failed to get current fiber, please report this bug to maintainers");
+  }
+};
 
 const REACT_STRICT_MODE_TYPE = /*#__PURE__*/ Symbol.for("react.strict_mode");
 
