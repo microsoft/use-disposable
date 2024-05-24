@@ -39,20 +39,23 @@ describe("useDisposable", () => {
       expect(dispose).toHaveBeenCalledTimes(1);
     });
 
-    _maybe_it("should call dispose and call factory if dependencies update", () => {
-      const dispose = vi.fn();
-      const factory = vi.fn().mockReturnValue(["foo", dispose]);
-      let dep = "foo";
-      const { rerender } = renderHook(() => useDisposable(factory, [dep]), {
-        wrapper: React.StrictMode,
-      });
+    _maybe_it(
+      "should call dispose and call factory if dependencies update",
+      () => {
+        const dispose = vi.fn();
+        const factory = vi.fn().mockReturnValue(["foo", dispose]);
+        let dep = "foo";
+        const { rerender } = renderHook(() => useDisposable(factory, [dep]), {
+          wrapper: React.StrictMode,
+        });
 
-      dep = "bar";
-      rerender();
+        dep = "bar";
+        rerender();
 
-      expect(dispose).toHaveBeenCalledTimes(1);
-      expect(factory).toHaveBeenCalledTimes(2);
-    });
+        expect(dispose).toHaveBeenCalledTimes(1);
+        expect(factory).toHaveBeenCalledTimes(2);
+      }
+    );
   });
 
   describe("not strict mode", () => {

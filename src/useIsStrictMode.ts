@@ -16,7 +16,9 @@ export const getCurrentOwner = () => {
     return React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
       .ReactCurrentOwner.current;
   } catch {
-    console.error("use-disposable: failed to get current fiber, please report this bug to maintainers");
+    console.error(
+      "use-disposable: failed to get current fiber, please report this bug to maintainers"
+    );
   }
 };
 
