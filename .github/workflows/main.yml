@@ -32,7 +32,6 @@ jobs:
       matrix:
         # rc tag should be react 19 release candidate
         react: [18, rc]
-        env: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
