@@ -16,7 +16,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3.5.1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - run: npm install
       - run: npm run format:check
       - run: npm run type-check
@@ -40,7 +40,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3.5.1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - run: npm install
       - run: npm install react@${{matrix.react}} react-dom@${{matrix.react}} --force
       - run: npm run test:ci
@@ -61,7 +61,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3.5.1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - run: npm install
       - run: npm install react@${{matrix.react}} react-dom@${{matrix.react}} @testing-library/react-hooks --force
       - run: npm run test:ci -- --config ./vitest.16.17.config.ts

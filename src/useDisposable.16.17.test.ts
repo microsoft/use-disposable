@@ -10,7 +10,7 @@ vi.mock("./useStrictEffect.ts");
 
 describe("useDisposable", () => {
   describe("in strict mode", () => {
-    it.only("should not call strict effect or memo", () => {
+    it("should not call strict effect or memo", () => {
       const factory = vi.fn().mockReturnValue(["foo", vi.fn()]);
       renderHook(() => useDisposable(factory, []), {
         wrapper: React.StrictMode,
