@@ -20,7 +20,6 @@ jobs:
       - run: npm install
       - run: npm run format:check
       - run: npm run type-check
-      - run: npm run test:ci
       - run: npm run build
       - name: "Check for unstaged changes"
         run: |
@@ -31,7 +30,7 @@ jobs:
     strategy:
       matrix:
         # rc tag should be react 19 release candidate
-        react: [18, rc]
+        react: [16, 17, 18, rc]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
