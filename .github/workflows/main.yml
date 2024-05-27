@@ -64,7 +64,7 @@ jobs:
           node-version: 16.x
       - run: npm install
       - run: npm install react@${{matrix.react}} react-dom@${{matrix.react}} @testing-library/react-hooks --force
-      - run: npm run test:ci -- --config ./vitest.config.16.17.ts
+      - run: npm run test:ci -- --config ./vitest.16.17.config.ts
         env:
           REACT_VERSION: ${{matrix.react}}
       - run: npm run build
