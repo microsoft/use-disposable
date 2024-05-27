@@ -26,11 +26,11 @@ jobs:
           git status --porcelain
           git diff-index --quiet HEAD -- || exit 1
 
-  compat:
+  compat-modern:
     strategy:
       matrix:
         # rc tag should be react 19 release candidate
-        react: [16, 17, 18, rc]
+        react: [18, rc]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -44,6 +44,27 @@ jobs:
       - run: npm install
       - run: npm install react@${{matrix.react}} react-dom@${{matrix.react}} --force
       - run: npm run test:ci
+        env:
+          REACT_VERSION: ${{matrix.react}}
+      - run: npm run build
+
+  compat-legacy:
+    strategy:
+      matrix:
+        react: [16, 17]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout [main]
+        with:
+          fetch-depth: 0
+      - name: Setup node
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 16.x
+      - run: npm install
+      - run: npm install react@${{matrix.react}} react-dom@${{matrix.react}} @testing-library/react-hooks --force
+      - run: npm run test:ci -- --config ./vitest.config.16.17.js
         env:
           REACT_VERSION: ${{matrix.react}}
       - run: npm run build
