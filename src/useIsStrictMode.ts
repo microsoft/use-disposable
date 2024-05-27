@@ -17,10 +17,9 @@ export const getCurrentOwner = () => {
       .ReactCurrentOwner.current;
   } catch {
     if (process.env.NODE_ENV !== "production") {
-
-    console.error(
-      "use-disposable: failed to get current fiber, please report this bug to maintainers"
-    );
+      console.error(
+        "use-disposable: failed to get current fiber, please report this bug to maintainers"
+      );
     }
   }
 };
