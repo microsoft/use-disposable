@@ -4,6 +4,11 @@ import { defineConfig } from "vite";
 export default defineConfig({
   test: {
     environment: "jsdom",
-    exclude: ["src/**/*.16.17.test.ts", "node_modules/**"],
+    include: ["**/*.16.17.test.ts"],
+  },
+  resolve: {
+    alias: {
+      "@testing-library/react": "@testing-library/react-hooks",
+    },
   },
 });
