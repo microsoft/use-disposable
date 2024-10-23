@@ -4,16 +4,21 @@ import * as React from "react";
  * @returns Current react fiber being rendered
  */
 export const getCurrentOwner = () => {
+  // If you use “React” imported directly, the following code supporting different
+  // React versions will cause errors when building with the module bundler,
+  // so temporarily assign it to a variable before use.
+  const react = React;
+
   try {
     // React 19
     // @ts-ignore - using react internals
-    return React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.A.getOwner();
+    return react.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.A.getOwner();
   } catch {}
 
   try {
     // React <18
     // @ts-ignore - using react internals
-    return React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
+    return react.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
       .ReactCurrentOwner.current;
   } catch {
     if (process.env.NODE_ENV !== "production") {
