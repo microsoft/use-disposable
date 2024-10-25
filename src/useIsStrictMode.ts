@@ -10,7 +10,7 @@ export const getCurrentOwner = () => {
     // using react internals
     return (React as any)[
       "".concat(
-        "__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE"
+        "__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE",
       )
     ].A.getOwner();
   } catch {}
