@@ -9,8 +9,8 @@ export const getCurrentOwner = () => {
     // React 19
     // using react internals
     return (React as any)[
-      "__".concat(
-        "CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE"
+      "".concat(
+        "__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE"
       )
     ].A.getOwner();
   } catch {}
@@ -19,7 +19,7 @@ export const getCurrentOwner = () => {
     // React <18
     // using react internals
     return (React as any)[
-      "__".concat("SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED")
+      "".concat("__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED")
     ].ReactCurrentOwner.current;
   } catch {
     if (process.env.NODE_ENV !== "production") {
