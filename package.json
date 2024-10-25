@@ -35,17 +35,18 @@
     "react-dom": ">=16.8.0 <19.0.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0",
-    "auto-changelog": "^2.4.0",
-    "jsdom": "^20.0.3",
-    "monosize": "0.0.9",
-    "monosize-storage-upstash": "0.0.8",
-    "prettier": "^2.8.1",
+    "@testing-library/react": "13.4.0",
+    "auto-changelog": "2.5.0",
+    "jsdom": "25.0.1",
+    "monosize": "0.6.3",
+    "monosize-bundler-webpack": "0.1.5",
+    "monosize-storage-upstash": "0.0.21",
+    "prettier": "3.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "release-it": "^15.5.1",
-    "tsup": "^6.5.0",
-    "typescript": "^4.9.4",
-    "vitest": "^1.6.0"
+    "release-it": "17.10.0",
+    "tsup": "8.3.4",
+    "typescript": "5.6.3",
+    "vitest": "2.1.3"
   }
 }

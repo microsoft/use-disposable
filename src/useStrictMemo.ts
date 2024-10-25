@@ -7,7 +7,7 @@ const memoSet = new WeakSet();
 
 export function useStrictMemo<TMemoized>(
   factory: () => any,
-  deps: React.DependencyList | undefined
+  deps: React.DependencyList | undefined,
 ): TMemoized | null {
   return React.useMemo(() => {
     const currentOwner = getCurrentOwner();

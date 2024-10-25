@@ -31,7 +31,7 @@ describe("useDisposable", () => {
         () => useDisposable(() => ["foo", dispose], []),
         {
           wrapper: React.StrictMode,
-        }
+        },
       );
 
       unmount();
@@ -54,7 +54,7 @@ describe("useDisposable", () => {
 
         expect(dispose).toHaveBeenCalledTimes(1);
         expect(factory).toHaveBeenCalledTimes(2);
-      }
+      },
     );
   });
 
@@ -77,7 +77,7 @@ describe("useDisposable", () => {
       const dispose = vi.fn();
       const { unmount } = renderHook(
         () => useDisposable(() => ["foo", dispose], []),
-        {}
+        {},
       );
 
       unmount();
