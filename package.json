@@ -1,6 +1,6 @@
 {
   "name": "use-disposable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "description": "A StrictMode safe hook that will create disposable instance during render",
   "main": "lib/index.cjs",
