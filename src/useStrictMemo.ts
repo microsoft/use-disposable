@@ -10,16 +10,23 @@ export function useStrictMemo<TMemoized>(
   deps: React.DependencyList | undefined,
 ): TMemoized | null {
   const factoryResultRef = React.useRef(null);
+  const reactMajorVersion = React.useMemo(() => {
+    return Number(React.version.split(".")[0]);
+  }, [React.version]);
 
   return React.useMemo(() => {
     const currentOwner = getCurrentOwner();
     if (!memoSet.has(currentOwner)) {
       memoSet.add(currentOwner);
-      const factoryResult = factory();
-      factoryResultRef.current = factoryResult;
-      return factoryResult;
+
+      if (reactMajorVersion < 19) {
+        return null;
+      }
+
+      factoryResultRef.current = factory();
+      return factoryResultRef.current;
     }
 
-    return factoryResultRef.current;
+    return reactMajorVersion < 19 ? factory() : factoryResultRef.current;
   }, deps);
 }
