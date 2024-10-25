@@ -9,13 +9,17 @@ export function useStrictMemo<TMemoized>(
   factory: () => any,
   deps: React.DependencyList | undefined,
 ): TMemoized | null {
+  const factoryResultRef = React.useRef(null);
+
   return React.useMemo(() => {
     const currentOwner = getCurrentOwner();
     if (!memoSet.has(currentOwner)) {
       memoSet.add(currentOwner);
-      return null;
+      const factoryResult = factory();
+      factoryResultRef.current = factoryResult;
+      return factoryResult;
     }
 
-    return factory();
+    return factoryResultRef.current;
   }, deps);
 }
