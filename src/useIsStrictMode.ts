@@ -4,17 +4,23 @@ import * as React from "react";
  * @returns Current react fiber being rendered
  */
 export const getCurrentOwner = () => {
+  // Note: String concatenation is used to prevent bundlers to complain with multiple versions of React
   try {
     // React 19
-    // @ts-ignore - using react internals
-    return React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.A.getOwner();
+    // using react internals
+    return (React as any)[
+      "".concat(
+        "__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE",
+      )
+    ].A.getOwner();
   } catch {}
 
   try {
     // React <18
-    // @ts-ignore - using react internals
-    return React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-      .ReactCurrentOwner.current;
+    // using react internals
+    return (React as any)[
+      "".concat("__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED")
+    ].ReactCurrentOwner.current;
   } catch {
     if (process.env.NODE_ENV !== "production") {
       console.error(
