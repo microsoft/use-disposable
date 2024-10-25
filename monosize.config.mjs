@@ -1,4 +1,5 @@
 import path from "path";
+import webpackBundler from "monosize-bundler-webpack";
 import upstashStorage from "monosize-storage-upstash";
 
 export default {
@@ -8,7 +9,7 @@ export default {
     readonlyToken:
       "AoHnASQgYzI2ZTFiN2YtN2VkNi00YWFjLTkyYTQtNDE4YzRlNGE2NGVlX3VGKBPwppebs7tkUrzjh4xy3kj5xcSi_pq35F_n9As=",
   }),
-  webpack: (config) => {
+  bundler: webpackBundler((config) => {
     return {
       ...config,
       resolve: {
@@ -16,10 +17,10 @@ export default {
         alias: {
           "use-disposable": path.resolve(
             new URL(".", import.meta.url).pathname,
-            "./lib/index.js"
+            "./lib/index.js",
           ),
         },
       },
     };
-  },
+  }),
 };

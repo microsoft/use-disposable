@@ -7,7 +7,7 @@ const effectSet = new WeakSet();
 
 export function useStrictEffect(
   effect: () => () => void,
-  deps: React.DependencyList | undefined
+  deps: React.DependencyList | undefined,
 ) {
   const currentOwner = getCurrentOwner();
   React.useEffect(() => {

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "CommonJS",
     "outDir": "dist",
-    "types": ["vitest", "node", "@testing-library/react"]
+    "types": ["node"]
   },
   "include": [
     "**/*.spec.ts",

@@ -17,7 +17,7 @@ import { useStrictMemo } from "./useStrictMemo";
  */
 export function useDisposable<TInstance>(
   factory: DisposableFactory<TInstance>,
-  deps: any[]
+  deps: any[],
 ) {
   // In production, strict mode does not require special handling
   const isStrictMode =

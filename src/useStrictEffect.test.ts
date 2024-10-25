@@ -11,7 +11,7 @@ describe("useStrictEffect", () => {
         useStrictEffect(() => {
           return dispose;
         }, []),
-      { wrapper: React.StrictMode }
+      { wrapper: React.StrictMode },
     );
 
     expect(dispose).toHaveBeenCalledTimes(0);
@@ -29,7 +29,7 @@ describe("useStrictEffect", () => {
         useStrictEffect(() => {
           return dispose;
         }, [dep]),
-      { wrapper: React.StrictMode }
+      { wrapper: React.StrictMode },
     );
 
     expect(dispose).toHaveBeenCalledTimes(0);
